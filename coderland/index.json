@@ -2,7 +2,7 @@
   "pathwayTitle": "Coderland", 
   "title": "Serverless computing in action",
   "description": "Visit Coderland to learn the latest technologies",
-  "difficulty": "Intermediate", 
+  "difficulty": "Beginner", 
   "time": "5-8 minutes",
     "details": {
     "steps": [
@@ -44,6 +44,11 @@
     "uilayout": "terminal", 
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
+  },
+  "assets": {
+    "host01": [
+      {"file": "service.yaml", "target": "/root/"}
+    ]
   },
   "backend": {
     "imageid": "kubernetes"
