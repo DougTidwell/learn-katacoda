@@ -1,11 +1,7 @@
 {
-  "title": "Coderland",
+  "title": "H-P",
   "private": true,
   "courses": [
-    {
-      "external_link": "https://katacoda.com/doug.tidwell/courses/coderland/", 
-      "title": "Compile Driver"
-    },
     {
       "external_link": "https://katacode.com/doug.tidwell/courses/openshift/",
       "title": "Foundations of OpenShift"
