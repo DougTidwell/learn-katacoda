@@ -1,10 +1,10 @@
 {
-  "title": "Learn.OpenShift.com",
+  "title": "Coderland",
   "private": true,
   "courses": [
     {
       "external_link": "https://katacoda.com/doug.tidwell/coderland", 
-      "title": "Coderland"
+      "title": "Compile Driver"
     },
     {
       "external_link": "https://learn.openshift.com/introduction/",
