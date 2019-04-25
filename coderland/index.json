@@ -42,7 +42,7 @@
     "showdashboard": true, 
     "dashboards": [{"name": "OpenShift Console", "port": 8443}, {"name": "Photo Booth", "port": 3000}],
     "uilayout": "terminal", 
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
+    "uimessage1": "\u001b[31mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
   },
   "assets": {
