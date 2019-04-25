@@ -26,4 +26,6 @@ spec:
             image: docker.io/dougtidwell/imageoverlay:v1
 ``` 
 
-This defines a service named `overlayimage` that is implemented inside the Docker image `dougtidwell/imageoverlay:v1` at `docker.io`. 
+This defines a service named `overlayimage` that is implemented inside the Docker image `imageoverlay:v1` inside the account `dougtidwell` at `docker.io`. 
+That service takes images (delivered in Base64) and returns those images overlaid with the Coderland logo, a greeting, and a
+date stamp. 
