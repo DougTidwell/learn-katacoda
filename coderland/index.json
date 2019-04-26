@@ -32,7 +32,9 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "code": "set-env.sh",
+      "courseData": "run-init.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -40,7 +42,9 @@
   },
   "environment": {
     "showdashboard": true, 
-    "dashboards": [{"name": "OpenShift Console", "port": 8443}, {"name": "Photo Booth", "port": 3000}],
+    "dashboards": [{"name": "OpenShift Console", "port": 8443}, 
+                   {"name": "Photo Booth", "port": 3000}, 
+                   {"name": "Service Proxy", "port": 8080}],
     "uilayout": "terminal", 
     "uimessage1": "\u001b[31mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
