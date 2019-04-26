@@ -3,7 +3,7 @@
   "title": "Serverless computing in action",
   "description": "Visit Coderland to learn the latest technologies",
   "difficulty": "Beginner", 
-  "time": "5-8 minutes",
+  "time": "5-8 minutes, once the environment is up and running",
     "details": {
     "steps": [
       {
@@ -55,6 +55,7 @@
     ]
   },
   "backend": {
-    "imageid": "kubernetes"
-  }
+    "trainingid": "openshift-3-11", 
+    "imageid": "openshift-3-11", "port": 8443
+}
 }
