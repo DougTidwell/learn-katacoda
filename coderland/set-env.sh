@@ -9,8 +9,10 @@ mkdir -p ~/projects/ && cd ~/projects/
 
 
 curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz 
+tar zxf node-v10.15.3-linux-x64.tar.gz 
 sleep 5
-tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
+rm -f node-v10.15.3-linux-x64.tar.gz 
+export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
 
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/coderland-photo-store
 cd coderland-photo-store
