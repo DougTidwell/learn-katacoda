@@ -45,16 +45,13 @@
     "dashboards": [{"name": "OpenShift Console", "port": 8443}, 
                    {"name": "Coderland Photo Booth", "port": 3000}],
     "uilayout": "terminal", 
-    "uimessage1": "\u001b[31mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
+    "uimessage1": "\u001b[33mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
   },
-  "assets": {
-    "host01": [
-      {"file": "service.yaml", "target": "/root/"}
-    ]
-  },
   "backend": {
-    "trainingid": "openshift-3-11", 
-    "imageid": "openshift-3-11", "port": 8443
-}
+//    "trainingid": "openshift-3-11", 
+//    "imageid": "openshift-3-11", "port": 8443
+    "trainingid": "kubernetes", 
+    "imageid": "kubernetes", "port": 8443
+  }
 }
