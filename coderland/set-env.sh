@@ -8,7 +8,10 @@ mkdir -p ~/projects/ # && cd ~/projects/
 #export PATH=$PATH:/root/installation/istio-1.0.5/bin
 
 
-cd ~/projects/ && curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz && tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
+cd ~/projects/ && curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz 
+sleep 5
+tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
+
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/coderland-photo-store
 cd coderland-photo-store
 npm install
@@ -29,9 +32,9 @@ cd image-overlay
 mvn package
 java -jar target/imageOverlay-1.0.0.jar & 
 
-cd ~/projects/
-
 cd ~/projects/ && git clone https://github.com/openshift-cloud-functions/knative-operators 
 cd knative-operators/etc/scripts
 ./install.sh
+
+cd ~/projects/
 

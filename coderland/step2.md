@@ -37,7 +37,7 @@ date stamp.
 Now define the URL of the service that the React app will use: 
 
 ```
-export REACT_APP_OVERLAY_URL=http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com:8080/overlayImage
+export REACT_APP_OVERLAY_URL=http://customer-tutorial.[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/overlayImage
 ```{{execute}}
 
 ```
