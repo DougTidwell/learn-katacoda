@@ -1,6 +1,6 @@
 /usr/local/bin/launch.sh
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
-echo "in the script from the github repo"
+echo "in set-env from the github repo"
 mkdir -p ~/projects/ && cd ~/projects/
 sleep 20
 export PATH=$PATH:/root/installation/istio-1.0.5/bin
@@ -11,16 +11,18 @@ npm install
 
 #set whatever environment variables are needed to run Don's code. I think (fingers crossed) that I can do this via the Katacoda URL that I can get automatically.
 
-npm start &
+#npm start &
 
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/knative-proxy
 cd knative-proxy
 npm install
 
 # set environment variables as needed
-npm start &
+#npm start &
 
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/image-overlay
 cd image-overlay
 mvn package
 java -jar target/imageOverlay-1.0.0.jar & 
+
+cd ~/projects/

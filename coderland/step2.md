@@ -41,8 +41,12 @@ export REACT_APP_OVERLAY_URL=http://customer-tutorial.[[HOST_SUBDOMAIN]]-80-[[KA
 ```{{execute}}
 
 ```
-export 
 
 The `REACT_APP_OVERLAY_URL` variable tells the React app where to send its requests. 
 
-Now start the 
+Now start the React app itself: 
+
+```
+cd ~/projects/coderland-photo-store && npm start & 
+```{{execute}}
+
