@@ -1,8 +1,8 @@
 /usr/local/bin/launch.sh
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
+echo "in the script from the github repo"
 mkdir -p ~/projects/ && cd ~/projects/
 export PATH=$PATH:/root/installation/istio-1.0.5/bin
-
 cd ~/projects/ && curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz && tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/coderland-photo-store
 cd coderland-photo-store
