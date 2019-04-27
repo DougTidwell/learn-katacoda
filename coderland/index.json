@@ -3,7 +3,7 @@
   "title": "Serverless computing in action",
   "description": "Visit Coderland to learn the latest technologies",
   "difficulty": "Beginner", 
-  "time": "5-8 minutes, once the environment is up and running",
+  "time": "Pretty much 5 minutes",
     "details": {
     "steps": [
       {
@@ -43,8 +43,7 @@
   "environment": {
     "showdashboard": true, 
     "dashboards": [{"name": "OpenShift Console", "port": 8443}, 
-                   {"name": "Photo Booth", "port": 3000}, 
-                   {"name": "Service Proxy", "port": 8080}],
+                   {"name": "Coderland Photo Booth", "port": 3000}],
     "uilayout": "terminal", 
     "uimessage1": "\u001b[31mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
