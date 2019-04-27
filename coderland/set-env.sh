@@ -1,7 +1,7 @@
 #/usr/local/bin/launch.sh
 #until $(oc get project istio-system &> /dev/null); do sleep 1; done
 echo "in set-env from the github repo v27-17:17"
-oc login -u admin -p admin 
+#oc login -u admin -p admin 
 
 mkdir -p ~/projects/ && cd ~/projects/
 
@@ -10,8 +10,7 @@ mkdir -p ~/projects/ && cd ~/projects/
 
 curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz 
 tar zxf node-v10.15.3-linux-x64.tar.gz 
-sleep 5
-rm -f node-v10.15.3-linux-x64.tar.gz 
+#rm -f node-v10.15.3-linux-x64.tar.gz 
 export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
 
 cd ~/projects/ && git clone https://github.com/redhat-developer-demos/coderland-photo-store
