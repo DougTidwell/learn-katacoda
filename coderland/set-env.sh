@@ -1,14 +1,14 @@
 #/usr/local/bin/launch.sh
 #until $(oc get project istio-system &> /dev/null); do sleep 1; done
-echo "in set-env from the github repo"
+echo "in set-env from the github repo v27-17:17"
 oc login -u admin -p admin 
 
-mkdir -p ~/projects/ # && cd ~/projects/
+mkdir -p ~/projects/ && cd ~/projects/
 
 #export PATH=$PATH:/root/installation/istio-1.0.5/bin
 
 
-cd ~/projects/ && curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz 
+curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz 
 sleep 5
 tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
 
