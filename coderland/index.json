@@ -49,8 +49,6 @@
 
   },
   "backend": {
-//    "trainingid": "openshift-3-11", 
-//    "imageid": "openshift-3-11", "port": 8443
     "trainingid": "kubernetes", 
     "imageid": "kubernetes", "port": 8443
   }
