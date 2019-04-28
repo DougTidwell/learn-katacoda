@@ -54,7 +54,7 @@
     ]
   },
   "backend": {
-    "trainingid": "openshift-3-11", 
-    "imageid": "openshift-3-11", "port": 8443
+    "trainingid": "coreos", 
+    "imageid": "coreos", "port": 8443
   }
 }
