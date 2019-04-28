@@ -55,6 +55,6 @@
   },
   "backend": {
     "trainingid": "kubernetes-cluster", 
-    "imageid": "kubernetes-cluster", "port": 8443
+    "imageid": "kubernetes-cluster", "port": 8443 
   }
 }
