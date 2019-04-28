@@ -44,7 +44,7 @@
     "showdashboard": true, 
     "dashboards": [{"name": "OpenShift Console", "port": 8443}, 
                    {"name": "Coderland Photo Booth", "port": 3000}],
-    "uilayout": "terminal", 
+    "uilayout": "terminal-terminal", 
     "uimessage1": "\u001b[33mYour Interactive Bash Terminal. You'll execute commands here.\u001b[m\r\n"
 
   },
@@ -54,7 +54,7 @@
     ]
   },
   "backend": {
-    "trainingid": "coreos", 
-    "imageid": "coreos", "port": 8443
+    "trainingid": "kubernetes-cluster", 
+    "imageid": "kubernetes-cluster", "port": 8443
   }
 }
