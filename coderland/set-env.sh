@@ -1,6 +1,6 @@
 /usr/local/bin/launch.sh
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
-echo "in set-env from the github repo v29-09:28"
+echo "in set-env from the github repo v29-12:01"
 #oc login -u admin -p admin 
 
 mkdir -p ~/projects/ && cd ~/projects/
@@ -30,7 +30,7 @@ mkdir -p ~/projects/ && cd ~/projects/
 #mvn package
 #java -jar target/imageOverlay-1.0.0.jar & 
 
-#cd ~/projects/ && git clone https://github.com/openshift-cloud-functions/knative-operators 
+# 
 #cd knative-operators/etc/scripts
 #./install.sh
 
