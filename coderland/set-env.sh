@@ -2,6 +2,8 @@
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
 echo "in set-env from the github repo v30-21:40"
 
+export PATH=$PATH:/root/installation/istio-1.0.5/bin
+
 #eval $(minishift oc-env)
 #eval $(minishift docker-env)
 #oc login -u admin -p admin 
@@ -15,11 +17,7 @@ oc label namespace knativetutorial istio-injection=enabled
 mkdir -p ~/projects/ && cd ~/projects/
 
 cd ~/projects/ && git clone https://github.com/DougTidwell/knative-operators
-cd knative-operators/etc/scripts && ./install.sh 
-
-
-#export PATH=$PATH:/root/installation/istio-1.0.5/bin
-
+cd knative-operators/etc/scripts && ./install.sh -q
 
 curl https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz -o node-v10.15.3-linux-x64.tar.gz && tar zxf node-v10.15.3-linux-x64.tar.gz && rm -f node-v10.15.3-linux-x64.tar.gz && export PATH=~/projects/node-v10.15.3-linux-x64/bin:$PATH
 
