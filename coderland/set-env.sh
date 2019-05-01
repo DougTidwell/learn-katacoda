@@ -1,6 +1,6 @@
 /usr/local/bin/launch.sh
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
-echo "in set-env from the github repo v29-12:01"
+echo "in set-env from the github repo v30-21:40"
 
 #eval $(minishift oc-env)
 #eval $(minishift docker-env)
