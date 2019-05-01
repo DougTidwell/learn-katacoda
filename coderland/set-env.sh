@@ -9,9 +9,14 @@ echo "in set-env from the github repo v29-12:01"
 
 oc new-project knativetutorial
 oc adm policy add-scc-to-user privileged -z default
+oc adm policy add-scc-to-user anyuid -z default 
 oc label namespace knativetutorial istio-injection=enabled
 
 mkdir -p ~/projects/ && cd ~/projects/
+
+cd ~/projects/ && git clone https://github.com/DougTidwell/knative-operators
+cd knative-operators/etc/scripts && ./install.sh 
+
 
 #export PATH=$PATH:/root/installation/istio-1.0.5/bin
 
@@ -37,9 +42,6 @@ cd ~/projects/ && git clone https://github.com/redhat-developer-demos/image-over
 cd image-overlay
 mvn package
 #java -jar target/imageOverlay-1.0.0.jar & 
-
-cd ~/projects/ && git clone https://github.com/DougTidwell/knative-operators
-cd knative-operators/etc/scripts && ./install.sh 
 
 cd ~/projects/
 
