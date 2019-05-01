@@ -2,9 +2,10 @@
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
 echo "in set-env from the github repo v29-12:01"
 
-eval $(minishift oc-env)
-eval $(minishift docker-env)
-oc login -u admin -p admin 
+#eval $(minishift oc-env)
+#eval $(minishift docker-env)
+#oc login -u admin -p admin 
+#oc login -u system:admin
 
 oc new-project knativetutorial
 oc adm policy add-scc-to-user privileged -z default
