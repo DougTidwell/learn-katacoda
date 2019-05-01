@@ -2,7 +2,7 @@
 until $(oc get project istio-system &> /dev/null); do sleep 1; done
 echo "in set-env from the github repo v30-21:40"
 
-export PATH=$PATH:/root/installation/istio-1.0.5/bin
+#export PATH=$PATH:/root/installation/istio-1.0.5/bin
 
 #eval $(minishift oc-env)
 #eval $(minishift docker-env)
