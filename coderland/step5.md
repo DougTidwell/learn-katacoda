@@ -1,24 +1,23 @@
-## Using the React photo booth
+## Viewing the running service in the OpenShift console
 
-Open a new browser tab to localhost:3000. Grant the page access to the webcam if it asks for it. You should see yourself
-looking back at yourself: 
+Now that you've deployed the service, type `minishift console` to open the OpenShift console. 
+The console will open in a new tab. Use a username / password of `admin / admin`. 
 
+Once you're logged in, click the All projects link in the upper right corner of the window: 
 
-Click the **Take Picture** button to capture the image from the webcam. This invokes the image manipulation service. 
-Switch back to the OpenShift console and look at the running pods. They will either be running (the display will say 3/3 
-containers are ready) or being initialized. Once the service is up and running, go to the web app. 
-the modified image will appear at the bottom of the page: 
+Scroll down to the `knativetutorial` project and click on it. Go to the **Applications** menu on the 
+left side of the screen and click **Deployments**. You should see something like this: 
 
+Now go back to the **Applications** menu and click **Pods**. Depending on how long it's been since you deployed 
+the service, you'll see one of three things: 
 
-In the console, click on the name of the pod:
+1. The pods are up and running
+1. The pods are being terminated
+1. There are no pods. 
 
-Scroll down to see the three containers: 
+The first scenario means that the service has been deployed recently enough that it's still running. If the pods are being 
+terminated, that means Knative has started the process of shutting it down because the service hasn't had any traffic for
+a period of time. The last scenario means the service has already scaled to zero. 
 
-1. **Container istio-proxy**: The Istio sidecar pod that controls access to the service. This also lets you leverage all of the 
-power of Istio for monitoring, management, and all the other services it provides.
-1. **Container queue-proxy**: The Knative pod that monitors how often the service is invoked. If the service is not invoked within a certain period of time, as you've seen, Knative terminates all of the containers. 
-1. **Container user-container**: The image manipulation code itself. 
-
-If you play around with the web app, you'll see that the service responds instantly if it's up and running. If not, there's a
-delay before the results return. Keep that in mind. Serverless is just like any other technology: Your mileage may vary. 
-If your service needs to respond instantly every time, scaling to zero is a bad idea. 
+When you invoke the service, Knative Serving makes it available if
+it wasn't already. 

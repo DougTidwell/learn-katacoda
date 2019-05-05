@@ -1,14 +1,19 @@
-## The Compile Driver 
+## Knative
 
-The Compile Driver is a new thrill ride at the Coderland theme park. It starts by hoisting guests to the top 
-of an enormous tower. From there, they endure a terrifying plunge through the air towards the reinforced concrete pad at 
-the base of the ride. Many parkgoers have asked for a photo of their experience, something they could 
-share with their friends, loved ones, and attorneys. 
+The Knative platform is built on top of the Istio service mesh and Kubernetes. As a result, it runs on any Kubernetes distribution. 
+No vendor lock-in here. It consists of three parts: 
 
-Seeing the opportunity to generate additional revenue from the Compile Driver, management installed a webcam next to the ride. 
-Your assignment, should you choose to accept it, is to create a souvenir photo 
-by superimposing the Coderland logo, a message, and a date stamp on an image captured by the webcam. 
-As they stagger away from the ride, guests can buy a print of that image for $19.95 at the Coderland Swag Shop. 
+### Knative Build
+The build component provides easy mechanisms for converting source code to containers. Knative can build your code and deploy it to 
+your cluster automatically. 
 
-In this exercise you'll use Knative Serving to deploy the image manipulation code to a serverless environment. You'll use
-Knative and Istio on top of OpenShift, and you'll see how the different frameworks and platforms work together. 
+### Knative Serving
+As you would expect, this component deals with serving your code. It also takes care of things like networking, 
+autoscaling, and revisions. Although we talked about scaling to zero earlier, Knative can scale to any arbitrary size. 
+
+### Knative Eventing
+The Knative event model lets your code subscribe to events, it deliveres those events to your code, and it manages those
+events as needed. You can attach your code to a data stream and let Knative invoke it as events come in. 
+
+Taken together, **these components let you focus on the core logic of your code**. Which is as it should be. Infrastructure should
+be as boring as possible. 

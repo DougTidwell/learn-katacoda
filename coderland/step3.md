@@ -1,40 +1,19 @@
-## Deploying the image manipulation code to OpenShift
+## The Compile Driver 
 
-Go to the terminal in the upper right-hand corner of the screen. (The terminal in the lower right is running 
-some code that we'll look at shortly.)
+The Compile Driver is a new thrill ride at the Coderland theme park. It starts by hoisting guests to the top 
+of an enormous tower. From there, they endure a terrifying plunge through the air towards the reinforced concrete pad at 
+the base of the ride. Many parkgoers have asked for a photo of their experience, something they could 
+share with their friends, loved ones, and attorneys. 
 
-- Make sure you're in the `~/projects/image-overlay` directory. 
-```
-cd ~/projects/image-overlay
-```
-- Make sure the `oc` command is using the project `knativetutorial`. 
-```
-oc project
-```
-- Now use the file `service.yaml` to deploy the service. 
-```
-oc apply -f service.yaml -n knativetutorial
-```
+Seeing the opportunity to generate additional revenue from the Compile Driver, management installed a webcam next to the ride. 
+The webcam captures images like this: 
 
-(Because you're using the `knativetutorial` project the `-n knativetutorial` bit isn't technically necessary, but 
-IMHO it's a good idea to be specific about where you want a service deployed.)
 
-The YAML file you just deployed looks like this: 
+Your assignment, should you choose to accept it, is to create a souvenir photo 
+by superimposing the Coderland logo, a message, and a date stamp on an image from the webcam: 
 
-```
-apiVersion: serving.knative.dev/v1alpha1
-kind: Service
-metadata:
-  name: overlayimage
-spec:
-  runLatest:
-    configuration:
-      revisionTemplate:
-        spec:
-          container:
-            image: docker.io/dougtidwell/imageoverlay:v1
-``` 
 
-This defines a service named `overlayimage` that is implemented inside the Docker image `imageoverlay:v1` inside the account 
-`dougtidwell` at `docker.io`. If that image is in the cache (if you're doing this exercise on our machine, it will be), the
-service starts quickly. Otherwise, Knative Serving will retrieve it from Dockerhub. 
+As they stagger away from the ride, guests can buy a print of that image for $19.95 at the Coderland Swag Shop. 
+
+In this exercise you'll use Knative Serving to deploy the image manipulation code to a serverless environment. You'll use
+Knative and Istio on top of OpenShift, and you'll see how the different frameworks and platforms work together. 

@@ -1,23 +1,40 @@
-## Viewing the running service in the OpenShift console
+## Deploying the image manipulation code to OpenShift
 
-Now that you've deployed the service, type `minishift console` to open the OpenShift console. 
-The console will open in a new tab. Use a username / password of `admin / admin`. 
+Go to the terminal in the upper right-hand corner of the screen. (The terminal in the lower right is running 
+some code that we'll look at shortly.)
 
-Once you're logged in, click the All projects link in the upper right corner of the window: 
+- Make sure you're in the `~/projects/image-overlay` directory. 
+```
+cd ~/projects/image-overlay
+```
+- Make sure the `oc` command is using the project `knativetutorial`. 
+```
+oc project
+```
+- Now use the file `service.yaml` to deploy the service. 
+```
+oc apply -f service.yaml -n knativetutorial
+```
 
-Scroll down to the `knativetutorial` project and click on it. Go to the **Applications** menu on the 
-left side of the screen and click **Deployments**. You should see something like this: 
+(Because you're using the `knativetutorial` project the `-n knativetutorial` bit isn't technically necessary, but 
+IMHO it's a good idea to be specific about where you want a service deployed.)
 
-Now go back to the **Applications** menu and click **Pods**. Depending on how long it's been since you deployed 
-the service, you'll see one of three things: 
+The YAML file you just deployed looks like this: 
 
-1. The pods are up and running
-1. The pods are being terminated
-1. There are no pods. 
+```
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: overlayimage
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: docker.io/dougtidwell/imageoverlay:v1
+``` 
 
-The first scenario means that the service has been deployed recently enough that it's still running. If the pods are being 
-terminated, that means Knative has started the process of shutting it down because the service hasn't had any traffic for
-a period of time (60 seconds is the default). The last scenario means the service has scaled to zero. 
-
-No matter what the state of the pods may be, when you invoke the service, Knative Serving will make it available. 
-
+This defines a service named `overlayimage` that is implemented inside the Docker image `imageoverlay:v1` inside the account 
+`dougtidwell` at `docker.io`. If that image is in the cache (if you're doing this exercise on our machine, it will be), the
+service starts quickly. Otherwise, Knative Serving will retrieve it from Dockerhub. 
