@@ -1,9 +1,10 @@
-Congratulations! You're now officially a serverless computing pioneer. Over the last few minutes, you have: 
+## Congratulations! 
+
+You're now officially a serverless computing pioneer. Over the last few minutes, you have: 
 
 1. Deployed a service to Knative
 1. Invoked that service via a web app
-1. Watched Knative scale the service to zero
-1. Re-invoked the service and watched Knative restart it
+1. Watched Knative scale the service to zero and restart it
 
 To continue your journey towards complete mastery of serverless computing and Knative, check out these resources: 
 

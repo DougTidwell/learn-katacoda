@@ -1,22 +1,40 @@
-View the running service in the OpenShift console
+## Deploying the image manipulation code to OpenShift
 
-Now that you've deployed the service, click the **"OpenShift Console"** link to see the status of the system. 
-The console will open in a new tab. Use a username / password of `admin / admin`. 
+Go to the terminal in the upper right-hand corner of the screen. (The terminal in the lower right is running 
+some code that we'll look at shortly.)
 
-Once you're logged in, click the All projects link in the upper right corner of the window: 
+- Make sure you're in the `~/projects/image-overlay` directory. 
+```
+cd ~/projects/image-overlay
+```
+- Make sure the `oc` command is using the project `knativetutorial`. 
+```
+oc project
+```
+- Now use the file `service.yaml` to deploy the service. 
+```
+oc apply -f service.yaml -n knativetutorial
+```
 
-Now scroll down to the `compiledriver` project. Go to the menu on the left and select Applications / Deployments. You should see
-something like this: 
+(Because you're using the `knativetutorial` project the `-n knativetutorial` bit isn't technically necessary, but 
+IMHO it's a good idea to be specific about where you want a service deployed.)
 
-The `compiledriver` project is up and running, as you can see. 
+The YAML file you just deployed looks like this: 
 
-Now take a look at the pods for this deployment. If the service is still running, there should be three pods: 
+```
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: overlayimage
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: docker.io/dougtidwell/imageoverlay:v1
+``` 
 
-1. The Istio sidecar pod that controls access to the service and all the other services Istio provides.
-1. The Knative pod that monitors how often the service is invoked. If the service is not invoked within a certain period of time 
-(the default is 1 minute), Knative terminates all of the pods. (*AKA* The service is scaled to zero.)
-1. The pod for the service itself. 
-
-To make the point of how serverless works, we've set the Knative timeout period to 30 seconds. It's quite likely that the pods 
-have been terminated or removed by the time you get to this display. **Worry not:** when you invoke the service in a minute, 
-Knative restarts it automatically. 
+This defines a service named `overlayimage` that is implemented inside the Docker image `imageoverlay:v1` inside the account 
+`dougtidwell` at `docker.io`. If that image is in the cache (if you're doing this exercise on our machine, it will be), the
+service starts quickly. Otherwise, Knative Serving will retrieve it from Dockerhub. 

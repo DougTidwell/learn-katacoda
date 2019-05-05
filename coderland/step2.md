@@ -1,50 +1,14 @@
-Let's begin my creating a new project called `compiledriver`:
+## The Compile Driver 
 
-```
-oc new-project compiledriver
-```{{execute}}
+The Compile Driver is a new thrill ride at the Coderland theme park. It starts by hoisting guests to the top 
+of an enormous tower. From there, they endure a terrifying plunge through the air towards the reinforced concrete pad at 
+the base of the ride. Many parkgoers have asked for a photo of their experience, something they could 
+share with their friends, loved ones, and attorneys. 
 
-With the project created, deploy the service to Knative via a YAML file: 
+Seeing the opportunity to generate additional revenue from the Compile Driver, management installed a webcam next to the ride. 
+Your assignment, should you choose to accept it, is to create a souvenir photo 
+by superimposing the Coderland logo, a message, and a date stamp on an image captured by the webcam. 
+As they stagger away from the ride, guests can buy a print of that image for $19.95 at the Coderland Swag Shop. 
 
-```
-cd ~/projects/image-overlay
-```{{execute}}
-now that you're in the correct directory, deploy the service: 
-```
-oc apply -f service.yaml
-```{{execute}}
-
-The YAML file you just deployed looks like this: 
-
-```
-apiVersion: serving.knative.dev/v1alpha1
-kind: Service
-metadata:
-  name: overlayimage
-spec:
-  runLatest:
-    configuration:
-      revisionTemplate:
-        spec:
-          container:
-            image: docker.io/dougtidwell/imageoverlay:v1
-``` 
-
-This defines a service named `overlayimage` that is implemented inside the Docker image `imageoverlay:v1` inside the account `dougtidwell` at `docker.io`. 
-That service takes images (delivered in Base64) and returns those images overlaid with the Coderland logo, a greeting, and a
-date stamp. 
-
-Now define the URL of the service that the React app will use: 
-
-```
-export REACT_APP_OVERLAY_URL=http://customer-tutorial.[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/overlayImage
-```{{execute}}
-
-The `REACT_APP_OVERLAY_URL` variable tells the React app where to send its requests. 
-
-Now start the React app itself: 
-
-```
-cd ~/projects/coderland-photo-store && npm start & 
-```{{execute}}
-
+In this exercise you'll use Knative Serving to deploy the image manipulation code to a serverless environment. You'll use
+Knative and Istio on top of OpenShift, and you'll see how the different frameworks and platforms work together. 
